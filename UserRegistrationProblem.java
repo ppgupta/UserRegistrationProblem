@@ -32,6 +32,17 @@ public class UserRegistrationProblem {
 		Matcher m=p.matcher(email);
 		return m.matches();
 	}
+	public static boolean isValidMobileNum(String mobile) {
+		//String regex="^[abc]+?[a-z]{2,}";
+      String regex=	"^((\\+)?(\\d{2}[\\s]))?(\\d{10}){1}?$";
+
+		Pattern p=Pattern.compile(regex);
+		if(mobile==null) {
+			return false;
+		}
+		Matcher m=p.matcher(mobile);
+		return m.matches();
+	}
 public static void main(String[] args) {
 	Scanner sc=new Scanner(System.in);
 	System.out.println("Enter your first name: ");
@@ -62,6 +73,16 @@ public static void main(String[] args) {
 	}
 	else {
 		System.out.println("Invalid Email");
+	}
+	//UC4
+	System.out.println("Enter your Mobile No: ");
+	String mobile =sc.nextLine();
+	
+	if(isValidMobileNum(mobile)) {
+		System.out.println("Valid Number");
+	}
+	else {
+		System.out.println("Invalid Number");
 	}
 }
 }
