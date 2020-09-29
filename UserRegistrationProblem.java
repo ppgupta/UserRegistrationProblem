@@ -21,6 +21,17 @@ public class UserRegistrationProblem {
 		Matcher m=p.matcher(lastName);
 		return m.matches();
 	}
+	public static boolean isValidEmail(String email) {
+		//String regex="^[abc]+?[a-z]{2,}";
+      String regex=	"^[a-zA-Z0-9]+([+_.-][a-zA-Z0-9]+)*[@][a-zA-Z0-9]+[.][a-zA-Z]{2,4}([.][a-zA-Z]{2,4})?$";
+
+		Pattern p=Pattern.compile(regex);
+		if(email==null) {
+			return false;
+		}
+		Matcher m=p.matcher(email);
+		return m.matches();
+	}
 public static void main(String[] args) {
 	Scanner sc=new Scanner(System.in);
 	System.out.println("Enter your first name: ");
@@ -41,6 +52,16 @@ public static void main(String[] args) {
 	}
 	else {
 		System.out.println("Invalid last name");
+	}
+	//UC3
+	System.out.println("Enter your Email Id: ");
+	String email =sc.nextLine();
+	
+	if(isValidEmail(email)) {
+		System.out.println("Valid Email");
+	}
+	else {
+		System.out.println("Invalid Email");
 	}
 }
 }
