@@ -42,18 +42,38 @@ public class UserRegistrationProblem {
 		}
 		Matcher m=p.matcher(mobile);
 		return m.matches();
+	}*/
+	public static boolean isValidPassword(String password) {
+		
+                  String regex1="(.){8,}";
+      
+		Pattern p=Pattern.compile(regex1);
+		if(password==null) {
+			return false;
+		}
+		Matcher m=p.matcher(password);
+		return m.matches();
 	}
 public static void main(String[] args) {
 	Scanner sc=new Scanner(System.in);
 	System.out.println("Enter your first name: ");
 	String firstName=sc.nextLine();
 	
+	
 	if(isValidFirstName(firstName)) {
 		System.out.println("Valid firstname");
 	}
-	else {
+	while(isValidFirstName(firstName)==false) {
 		System.out.println("Invalid first name");
+		System.out.println("Enter your first name again: ");
+		String fName=sc.nextLine();
+        if(isValidFirstName(fName)) {
+    		System.out.println("Valid firstname");
+    		break;
+        }
+        
 	}
+	
 	//UC2
 	System.out.println("Enter your Last name: ");
 	String lastName=sc.nextLine();
@@ -83,6 +103,16 @@ public static void main(String[] args) {
 	}
 	else {
 		System.out.println("Invalid Number");
+	}
+	//UC5
+	System.out.println("Enter your Password: ");
+	String password =sc.nextLine();
+	
+	if(isValidPassword(password)) {
+		System.out.println("Valid Password");
+	}
+	else {
+		System.out.println("Invalid Password");
 	}
 }
 }
