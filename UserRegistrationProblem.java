@@ -33,8 +33,7 @@ public class UserRegistrationProblem {
 		return m.matches();
 	}
 	public static boolean isValidMobileNum(String mobile) {
-		//String regex="^[abc]+?[a-z]{2,}";
-      String regex=	"^((\\+)?(\\d{2}[\\s]))?(\\d{10}){1}?$";
+      String regex=	"^((\\+)?(\\d{1,2}[\\s]))?(\\d{10}){1}?$";
 
 		Pattern p=Pattern.compile(regex);
 		if(mobile==null) {
@@ -42,16 +41,16 @@ public class UserRegistrationProblem {
 		}
 		Matcher m=p.matcher(mobile);
 		return m.matches();
-	}*/
-	public static boolean isValidPassword(String password) {
-		
-                  String regex1="(.){8,}";
-      
-		Pattern p=Pattern.compile(regex1);
-		if(password==null) {
+	}
+	public static boolean isValidPassword(String pass) {
+
+        String regex=	"(?=.*[A-Z])(.).{7,}";
+
+		Pattern p=Pattern.compile(regex);
+		if(pass==null) {
 			return false;
 		}
-		Matcher m=p.matcher(password);
+		Matcher m=p.matcher(pass);
 		return m.matches();
 	}
 public static void main(String[] args) {
@@ -104,7 +103,7 @@ public static void main(String[] args) {
 	else {
 		System.out.println("Invalid Number");
 	}
-	//UC5
+	//UC6
 	System.out.println("Enter your Password: ");
 	String password =sc.nextLine();
 	
@@ -114,5 +113,6 @@ public static void main(String[] args) {
 	else {
 		System.out.println("Invalid Password");
 	}
+	
 }
 }
