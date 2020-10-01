@@ -22,7 +22,6 @@ public class UserRegistrationProblem {
 		return m.matches();
 	}
 	public static boolean isValidEmail(String email) {
-		//String regex="^[abc]+?[a-z]{2,}";
       String regex=	"^[a-zA-Z0-9]+([+_.-][a-zA-Z0-9]+)*[@][a-zA-Z0-9]+[.][a-zA-Z]{2,4}([.][a-zA-Z]{2,4})?$";
 
 		Pattern p=Pattern.compile(regex);
@@ -44,7 +43,7 @@ public class UserRegistrationProblem {
 	}
 	public static boolean isValidPassword(String pass) {
 
-        String regex=	"(?=.*[A-Z])(.).{7,}";
+        String regex=	"(?=.*[A-Z])(?=.*[0-9])(.).{7,}";
 
 		Pattern p=Pattern.compile(regex);
 		if(pass==null) {
@@ -103,7 +102,7 @@ public static void main(String[] args) {
 	else {
 		System.out.println("Invalid Number");
 	}
-	//UC6
+	//UC7
 	System.out.println("Enter your Password: ");
 	String password =sc.nextLine();
 	
