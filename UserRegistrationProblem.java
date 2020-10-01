@@ -43,8 +43,7 @@ public class UserRegistrationProblem {
 	}
 	public static boolean isValidPassword(String pass) {
 
-        String regex=	"(?=.*[A-Z])(?=.*[0-9])(.).{7,}";
-
+		 String regex=	"(?=.*[A-Z])(?=.*[0-9])(?=.*[@#$%^&+=])(.).{7,}";
 		Pattern p=Pattern.compile(regex);
 		if(pass==null) {
 			return false;
@@ -102,7 +101,7 @@ public static void main(String[] args) {
 	else {
 		System.out.println("Invalid Number");
 	}
-	//UC7
+	//UC8
 	System.out.println("Enter your Password: ");
 	String password =sc.nextLine();
 	
